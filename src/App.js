@@ -1,11 +1,26 @@
+import React, { Component } from "react";
+import MoviePage from "./context/MoviePage";
+import UserContext from "./context/userContext";
 
-import './App.css';
-import Movie from './hoc/Movie';
+export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentUser: {
+        name: "Amir",
+      },
+    };
+  }
 
-function App() {
-  return (
-    <Movie />
-  );
+  render() {
+    return (
+      <UserContext.Provider value={this.state.currentUser}>
+        <div>
+          <MoviePage />
+        </div>
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default App;
